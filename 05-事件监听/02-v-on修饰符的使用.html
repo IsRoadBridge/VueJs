@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app" @click.once="div()">
+    <!--.stop终止冒泡事件，当点击该按钮时，该div的点击事件不会触发-->
+    <button @click.stop="btn1()">btn1</button>
+    <!--.once点击只触发一次-->
+    <button @click.once="btn1()">btn1</button>
+    <!--.keyup键盘弹起监听，.keydown键盘按下监听-->
+    <input @keyup="btn1()">
+    <!--只监听enter键的弹起-->
+    <input @keyup.enter="btn1()">
+    <!--.prevent阻止表单提交-->
+    <form action="baidu">
+        <button type="submit" @click.prevent="btn1()">提交</button>
+    </form>
+
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        //vue实例通过methods定义方法
+        methods: {
+            btn1(){
+                console.log('btn')
+            },
+            div(){
+                console.log('div')
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

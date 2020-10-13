@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--v-bind绑定class的对象写法-->
+    <h2 :class="{active: isActive}">张小桥</h2>
+    <!--v-bind绑定class通过方法返回定义的class-->
+    <h2 :class="object()">张小桥</h2>
+    <!--默认上面的两个class的有active，点击按钮后active为false，-->
+    <button v-on:click="modify()">变色按钮</button>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            isActive: true
+        },
+        methods:{
+            modify(){
+                this.isActive = !this.isActive;
+            },
+            object(){
+               return {active: this.isActive}
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

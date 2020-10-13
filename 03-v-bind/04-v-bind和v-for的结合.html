@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li :class="{active: isActive}" v-for="m in movies">{{m}}</li>
+    </ul>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            movies: ['海贼王','火影忍者','盗墓笔记','秦时明月'],
+            isActive: false
+        }
+
+    })
+
+</script>
+</body>
+</html>

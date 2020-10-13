@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--v-cloak可以设置在数据没有获取到之前不显示内容-->
+    <h2 v-cloak>{{message}}</h2>
+
+</div>
+<script>
+    setTimeout(function () {
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'hello',
+                    url: '<a href="www.baidu.com">百度一下</a>',
+                },
+            })
+        }
+    ,2000)
+</script>
+
+</body>
+</html>

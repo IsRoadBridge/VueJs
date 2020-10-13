@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--对于复杂的属性或者是需要计算的属性使用vue的计算属性会很方便-->
+    <h2>{{fullName}}</h2>
+    <h2>{{totalPrice}}</h2>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'labron',
+            lastName:  'james',
+            books: [
+                {id: 100,name: '平凡的世界',price: 99},
+                {id: 100,name: '从你的全世界路过',price: 76},
+                {id: 100,name: '好吗，好的',price: 72}
+                ]
+        },
+        //vue的计算属性computed，用名词来命名计算属性的方法，表示这是一个属性
+        computed:{
+            fullName(){
+                return this.firstName+" "+this.lastName
+            },
+            totalPrice(){
+                let result = 0;
+                for(let book of this.books){
+                    result+=book.price;
+                }
+                return result
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

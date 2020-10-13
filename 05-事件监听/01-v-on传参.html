@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--当v-on需要参数时的三种情况,一，带括号不传参，默认传的是undefined-->
+    <button @click="btn1()">btn1</button>
+    <!--二，不带括号不传参，默认传的是event监听事件-->
+    <button @click="btn1">btn1</button>
+    <!--三，正常传参，对于固定的字符串要加单引号，不加单引号会当成变量读取数据-->
+    <button @click="btn1('das')">btn1</button>
+    <br>
+    <!--当v-on同时需要参数和事件时的三种情况,一，正常情况-->
+    <button @click="btn2('das',$event)">btn2</button>
+    <!--当v-on同时需要参数和事件时的三种情况,二，带括号不传参，默认参数和事件都是undefined-->
+    <button @click="btn2()">btn2</button>
+    <!--当v-on同时需要参数和事件时的三种情况,二，不带括号不传参，默认第一个是事件，第二个是undefined-->
+    <button @click="btn2">btn2</button>
+
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        //vue实例通过methods定义方法
+        methods: {
+            btn1(abc){
+                console.log('-----',abc)
+            },
+            btn2(aaa,event){
+                console.log('+++++',aaa,event)
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--加单引号为文本，class="active,line"-->
+    <h2 :class="['active','line']">张小桥</h2>
+    <!--不加单引号为获取到vue的值，class="aaaa,bbbbb"-->
+    <h2 :class="[active,line]">张小桥</h2>
+    <!--通过方法返回数组写法-->
+    <h2 :class="arr()">张小桥</h2></div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            active: 'aaaa',
+            line: 'bbbbb'
+        },
+        methods:{
+            arr(){
+                return [this.active,this.line]
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

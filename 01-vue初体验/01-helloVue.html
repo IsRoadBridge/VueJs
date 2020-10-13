@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入vue.js-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--获取到绑定div里面的内容-->
+        <h1>{{message}}</h1>
+        <h2>{{name}}</h2>
+    </div>
+</body>
+<script>
+    //let 定义变量  const 定义常量 es6的语法
+    //vue的语法，创建一个vue实例，用el绑定对应的模块id，data定义数据
+    const app = new Vue(
+    {
+        el: '#app',
+        data: {
+            message: '你好啊，张小桥',
+            name: '小乔乔'
+    }
+            })
+</script>
+</html>

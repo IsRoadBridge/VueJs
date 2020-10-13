@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <!--遍历输出movies的每一个元素-->
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
+</div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: '小乔乔',
+            movies: ['当幸福来敲门','垫底辣妹','喊山','一一']
+        }
+    })
+</script>
+</body>
+</html>

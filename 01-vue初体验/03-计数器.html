@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>当前计数：{{counter}}</h1>
+    <!--方法一：通过v-on监控按钮，当按钮被点击时，执行自加或自减-->
+    <!--<button v-on:click="counter++">+</button>
+        <button v-on:click="counter--">-</button>-->
+    <!--方法二：指定vue的方法进行自加或自减-->
+    <!--<button v-on:click="increment">+</button>
+    <button v-on:click="decrement">-</button>-->
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        //vue实例通过methods定义方法
+        methods: {
+            increment(){
+                this.counter++
+            },
+            decrement(){
+                this.counter--
+            }
+        }
+    })
+</script>
+</body>
+</html>

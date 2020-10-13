@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--mustache语法的获取值，各种字符串拼接规则，数字计算-->
+        <h2>{{message}}</h2>
+        <h2>{{message}},张小桥</h2>
+        <h2>{{firstName+LastName}}</h2>
+        <h2>{{firstName+' '+LastName}}</h2>
+        <h2>{{firstName}} {{LastName}}</h2>
+        <h2>{{counter*2}}</h2>
+    </div>
+<script>
+    const  app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+            firstName: 'LeBron',
+            LastName: 'James',
+            counter: 100
+        },
+    })
+</script>
+</body>
+</html>

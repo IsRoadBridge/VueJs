@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--v-bind绑定style的固定写法，key(属性名):value(属性值)，属性值必须用单引号，不然会被解析成vue的数据-->
+    <h2 :style="{fontSize: '50px'}">你好啊</h2>
+    <!--v-bind绑定style的对象写法，多个属性用逗号隔开-->
+    <h2 :style="{fontSize: size}">你好啊</h2>
+    <!--v-bind绑定style的数组写法(用得少)，多个属性用逗号隔开-->
+    <h2 :style="[color]">你好啊</h2>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            size: '50px',
+            color: {color: 'red'}
+        }
+    })
+
+</script>
+</body>
+</html>
