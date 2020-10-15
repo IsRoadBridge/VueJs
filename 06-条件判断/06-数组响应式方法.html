@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app" >
+  <ul>
+    <li v-for="item in arry">{{item}}</li>
+  </ul>
+  <button @click="btn()">测试按钮</button>
+
+</div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            arry: ['a','v','d','c']
+        },
+        methods: {
+            btn(){
+                //在数组末尾插入一个元素，也可以同时插入多个
+                //this.arry.push('aaa')
+                //在数组头插入一个元素，也可以同时插入多个
+                //this.arry.unshift('vvvv')
+                //删除数组末尾的一个元素
+                //this.arry.pop()
+                //删除数组头的一个元素
+                //this.arry.shift()
+                //数组排序
+                //this.arry.sort()
+                //反转数组
+                //this.arry.reverse()
+                //splice可以实现删除元素，插入元素，替换元素
+                //传入splice的一个参数是指定删除元素的起始位置
+                //第二个是指定删除几个，示例中1,3表示删除下标1,2,3的三个元素
+                //第三个参数跟可变的插入元素，想插入几个就加几个
+                //this.arry.splice(1,3)
+                //this.arry.splice(1,3,'11','22')
+                //删几个再加几个就实现了替换元素
+                this.arry.splice(1,1,'222')
+            }
+        }
+    })
+</script>
+</body>
+</html>

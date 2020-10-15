@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <!--v-model实现双向绑定数据-->
+  <input v-model="message">
+  <!--v-model原理，通过value获取值，再监听输入框把改变后的值赋给message-->
+  <input :value="message" @input="message = $event.target.value">
+  <h2>{{message}}</h2>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'zcd'
+        }
+    })
+</script>
+</body>
+</html>

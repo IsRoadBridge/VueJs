@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <!--通过select实现单选-->
+  <select  v-model="city">
+    <option value="成都">成都</option>
+    <option value="苏州">苏州</option>
+    <option value="上海">上海</option>
+    <option value="西安">西安</option>
+  </select>
+  <h2>你选择的城市是:{{city}}</h2>
+
+  <!--通过select实现多选-->
+  <select  v-model="citys" multiple>
+    <option value="成都">成都</option>
+    <option value="苏州">苏州</option>
+    <option value="上海">上海</option>
+    <option value="西安">西安</option>
+  </select>
+  <h2>你喜欢的城市有:{{citys}}</h2>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            city: '',
+            citys: []
+        }
+    })
+</script>
+</body>
+</html>

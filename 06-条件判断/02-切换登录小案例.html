@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body><!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app" >
+  <!--使用条件判断实现登录切换，使用不同的key可以在切换的时候清除输入框的值-->
+ <div v-if="isShow">
+   <label  for="user">用户账号</label>
+   <input id="user" placeholder="用户账号"  key="user">
+ </div>
+  <div v-else>
+    <label  for="email">用户邮箱</label>
+    <input id="email" placeholder="用户邮箱" key="email">
+  </div>
+  <button @click="isShow=!isShow">切换类型</button>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            score: 0,
+            isShow: true
+        }
+    })
+</script>
+</body>
+</html>

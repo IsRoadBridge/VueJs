@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <!--通过radio实现单选，可以设置默认不选或者默认选男选女-->
+  <label for="man">
+    <input type="radio" id="man" value="男" v-model="sex">男
+  </label>
+  <label for="woman">
+    <input type="radio" id="woman" value="女" v-model="sex">女
+  </label>
+  <h2>你的性别是:{{sex}}</h2>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            sex: ''
+        }
+    })
+</script>
+</body>
+</html>

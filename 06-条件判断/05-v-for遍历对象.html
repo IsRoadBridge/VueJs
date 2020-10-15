@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app" >
+
+  <!--遍历对象获得对象的属性值-->
+  <ul>
+    <li v-for="item in people">{{item}}</li>
+  </ul>
+  <!--遍历对象获得对象的属性值key和value-->
+  <ul>
+    <li v-for="(value,key) in people">{{key}}-{{value}}</li>
+  </ul>
+  <!--遍历对象获得对象的属性值key，value和下标-->
+  <ul>
+    <li v-for="(value,key,index) in people">{{index}}-{{key}}-{{value}}</li>
+  </ul>
+</div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            people:{
+                age: 14,
+                name: 'zxq',
+                sex: '男'
+            }
+        }
+    })
+</script>
+</body>
+</html>

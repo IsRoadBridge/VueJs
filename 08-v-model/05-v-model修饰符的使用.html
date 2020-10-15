@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <!--.lazy当输入框失去焦点或者敲回车时才改变值-->
+  <input v-model.lazy="message">
+  <h2>{{message}}</h2>
+  <!--.trim去除字符串首尾空格-->
+  <input v-model.trim="message">
+  <h2>{{message}}</h2>
+  <!--.number将输入字符串转换为数字-->
+  <input v-model.number="money">
+  <h2>{{money}}-{{typeof money}}</h2>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'dasd',
+            money: 0
+        }
+    })
+</script>
+</body>
+</html>

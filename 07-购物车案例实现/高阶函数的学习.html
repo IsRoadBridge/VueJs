@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  //filter函数可以根据条件过滤数组中不需要的数，为true的保留，为false过滤，最后返回过滤后的数组
+  //filter传的参数是数组中的每一个元素
+  const numArr = [12,45,200,69,222,133,46];
+  let filterNum = numArr.filter( function (number) {
+       return number <100
+  });
+  console.log(filterNum);
+  //map函数可以对数组中的数进行统一的操作并返回操作后的新数组
+  //map传的参数是数组中的每一个元素
+  let mapNum = filterNum.map( function (number) {
+      return number * 2
+  });
+  console.log(mapNum);
+  //reduce函数可以实现对数组中的数进行累加并返回累加后的结果
+  //reduce需要传三个参数，第一个的前一个结果值，第二个是数组中的元素，第三个是前一个结果值的初始化值
+  let sumNum = mapNum.reduce( function (preValue,number) {
+      return preValue+number//每次计算的结果都保留在preValue中
+  },0);
+  console.log(sumNum);
+  //函数可以进行链式编程
+  let simpleNum = numArr.filter( function (number) {
+      return number <100
+  }).map( function (number) {
+      return number * 2
+  }).reduce( function (preValue,number) {
+      return preValue+number
+  },0);
+  console.log(simpleNum);
+
+</script>
+</body>
+</html>

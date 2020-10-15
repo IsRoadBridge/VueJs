@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app" >
+  <!--点谁谁红的实现，定义一个基准下标，默认为0，采用下标与基准下标比较，true为红，点谁把谁的下标赋值给基准下标-->
+  <ul>
+    <li v-for="(item,index) in movies" :class="{active: index === currentIndex}" @click="modify(index)">{{item}}</li>
+  </ul>
+</div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            movies: ['鸡毛飞上天','父母爱情','加勒比海盗','海王'],
+            currentIndex: 0
+        },
+        methods: {
+            modify(index){
+                this.currentIndex=index;
+            }
+        }
+    })
+</script>
+</body>
+</html>

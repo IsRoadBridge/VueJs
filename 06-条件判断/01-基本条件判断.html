@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app" >
+    <!--v-if和v-else的使用-->
+    <h2 v-if="isShow">isShow为true显示</h2>
+    <h2 v-else>isShow为false显示</h2>
+    <!--v-if和v-else-if,v-else三者的使用(用的少)，多条件建议用计算属性-->
+    <div>
+        <p v-if="score>=90">优秀</p>
+        <p v-else-if="score>=80">良好</p>
+        <p v-else-if="score>=60">及格</p>
+        <p v-else>不及格</p>
+    </div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            score: 0,
+            isShow: true
+        }
+    })
+</script>
+</body>
+</html>

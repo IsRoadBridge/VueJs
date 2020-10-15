@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app" >
+  <!--普通遍历数组-->
+  <ul>
+    <li v-for="item in books">{{item}}</li>
+  </ul>
+  <!--遍历的数组如果需要插入值时，绑定一个key效率更高，确保key唯一-->
+  <ul>
+    <li v-for="item in books" :key="item">{{item}}</li>
+  </ul>
+  <!--遍历数组带下标-->
+  <ul>
+    <li v-for="(item,index) in books">{{index}}.{{item}}</li>
+  </ul>
+</div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            books: ['星际穿越','万物生长','时间简史']
+        }
+    })
+</script>
+</body>
+</html>
