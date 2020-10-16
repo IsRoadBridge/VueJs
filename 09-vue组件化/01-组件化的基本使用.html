@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<!--在绑定vue的模块中所有注册的组件标签名-->
+<div id="app">
+  <cpnc></cpnc>
+</div>
+<!--局部组件不能在其他vue实例中使用-->
+<div id="app2">
+  <cpnc></cpnc>
+</div>
+<script>
+    //组件的使用分三步 1.创建组件
+    const myCpn = Vue.extend({
+        template: `<div>
+      <h2>我是头部标题</h2>
+      <h2>我是内容，红红火火恍恍惚惚</h2>
+      <h2>我是内容呵呵呵呵</h2>
+      </div>`
+    })
+    //2.注册组件，这是注册全局组件
+    //Vue.component('my-cpn',myCpn)
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'zcd'
+        },
+        //这是注册局部组件
+        components: {
+            cpnc: myCpn
+        }
+    })
+
+    const app2 = new Vue({
+        el: '#app2'
+    })
+</script>
+</body>
+</html>

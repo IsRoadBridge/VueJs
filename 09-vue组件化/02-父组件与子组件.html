@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+  <!--使用注册后的父组件-->
+  <div id="app">
+    <cpn2></cpn2>
+  </div>
+<script>
+    //子组件
+    const myCpn1 = Vue.extend({
+        template: `<div>
+      <h2>我是头部标题1</h2>
+      <h2>我是内容呵呵呵呵</h2>
+      </div>`
+    })
+    //父组件，在父组件中注册子组件并调用
+    const myCpn2 = Vue.extend({
+        template:
+            `<div>
+       <cpn1></cpn1>
+      <h2>我是头部标题2</h2>
+      <h2>我是内容哈哈哈</h2>
+      </div>`,
+        components:{
+            cpn1: myCpn1
+        }
+    })
+    const app = new Vue({
+        el: '#app',
+        //注册父组件
+        components: {
+            cpn2: myCpn2
+        }
+    })
+</script>
+</body>
+</html>

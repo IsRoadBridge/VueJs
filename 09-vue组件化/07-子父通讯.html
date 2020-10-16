@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<!--获取创建的事件并在父组件中创建一个方法接收-->
+<div id="app">
+  <cpn1  @btn-click="fClick"></cpn1>
+</div>
+<template id="cpn">
+  <div>
+    <button v-for="book in info" @click="btn(book)">{{book.name}}</button>
+  </div>
+</template>
+<script>
+    //子组件定义一些值
+    const myCpn = {
+        template: '#cpn',
+        data(){
+            return {
+                info: [
+                    {id: 1, name: '海贼王'},
+                    {id: 2, name: '盗墓笔记'},
+                    {id: 3, name: '知书达理'}
+                ]
+            }
+        },
+        //定义一个点击方法，通过$emit创建一个点击事件将点击事件中的元素传出去
+        methods: {
+            btn(book){
+                this.$emit('btn-click',book)
+            }
+        }
+        }
+
+    const app = new Vue({
+        el: '#app',
+        components: {
+            cpn1: myCpn
+        },
+        //接收子组件发送的元素
+        methods:{
+            fClick(book){
+                console.log('fClick',book)
+            }
+        }
+    })
+</script>
+</body>
+</html>

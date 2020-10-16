@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+  <!--将要赋值给子组件的值进行动态绑定-->
+  <div id="app">
+    <cpn1  :movies="movies" :message="message"></cpn1>
+  </div>
+  <!--获取定义的变量值-->
+<template id="cpn">
+  <div>
+    <h2>{{message}}</h2>
+    <ul>
+      <li v-for="movie in movies">{{movie}}</li>
+    </ul>
+  </div>
+</template>
+<script>
+    //通过props获取父组件值的两种方式数组和对象
+    const myCpn = {
+        template: '#cpn',
+        //通过数组的形式定义变量，变量名随便取
+        //props: ['message','movies']
+        //通过对象定义变量，这样可以限制获取的数据类型
+        /*props: {
+            movies: Array,
+            message: String
+        }*/
+        //更常用的形式，通过对象定义变量，再在对象中定义获取值的类型，默认值或是否必须传值之类的
+        props: {
+            message:{
+                type: String,
+                default(){
+                    return '123'
+                },
+                required: true
+            },
+            movies: {
+                type: Array,
+                default() {
+                    return [];
+                }
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'zcd',
+            movies: ['名侦探柯南','火影忍者','海贼王']
+        },
+        components: {
+            cpn1: myCpn
+        }
+    })
+</script>
+</body>
+</html>

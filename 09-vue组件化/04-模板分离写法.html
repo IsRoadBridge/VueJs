@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <my-cpn></my-cpn>
+</div>
+<!--1. 使用script的type="text/x-template"抽离模板-->
+<script type="text/x-template" id="scriptCpn">
+<div>
+  <h2>我是标题</h2>
+  <p>我是内容，哈哈哈哈哈哈</p>
+</div>
+</script>
+<!--2. 使用template写模板-->
+<template id="cpn">
+  <div>
+    <h2>我是标题</h2>
+    <p>我是内容，呵呵呵呵</p>
+  </div>
+</template>
+<script>
+    //注册组件的时传模板id
+    // Vue.component('my-cpn',{
+    //     template: '#scriptCpn'
+    // })
+    Vue.component('my-cpn',{
+        template: '#cpn'
+    })
+    const app = new Vue({
+        el: '#app',
+    })
+</script>
+</body>
+</html>
