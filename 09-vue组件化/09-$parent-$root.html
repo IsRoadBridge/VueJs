@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <h2>我是子组件</h2>
+    <ccpn></ccpn>
+  </div>
+</template>
+<template id="ccpn">
+  <div>
+    <h2>我是孙组件</h2>
+    <button @click="btn()">调用父和根组件方法</button>
+  </div>
+</template>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'zxq'
+        },
+        components: {
+            cpn: {
+                template: '#cpn',
+                data() {
+                    return {
+                        name: 'zxq'
+                    }
+                },
+                components: {
+                    ccpn: {
+                        template: '#ccpn',
+                        methods: {
+                                btn() {
+                                    // this.$parent.info()
+                                    // console.log(this.$parent.name)
+                                    // console.log(this.$root.message)
+                                    // this.$root.rInfo()
+                                }
+                            }
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

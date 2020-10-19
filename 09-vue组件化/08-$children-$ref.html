@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn ref="three"></cpn>
+  <button @click="btn()">调用子组件方法</button>
+</div>
+<template id="cpn">
+  <div>
+    <h2>我是子组件</h2>
+  </div>
+</template>
+<script>
+    const app = new Vue({
+        el: '#app',
+        components: {
+            cpn: {
+                template: '#cpn',
+                data(){
+                    return {
+                        name: 'zxq'
+                    }
+                },
+                methods: {
+                    info() {
+                        console.log('子组件方法')
+                    }
+                }
+            }
+        },
+        methods: {
+            //$children和$ref都可以实现父组件调用子组件的方法和属性
+            btn(){
+                //$children是获取所有，然后指定你想要使用的子组件，用的少
+                this.$children[0].info(),
+                console.log(this.$children[0].name)
+                //$refs可以通过定义的标签调用指定的子组件，用的多
+                this.$refs.three.info()
+                console.log(this.$refs.three.name)
+            }
+        }
+    })
+</script>
+</body>
+</html>
