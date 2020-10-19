@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <cpn>
+        <button>按钮</button>
+    </cpn>
+    <cpn></cpn>
+    <cpn>
+        <p>文本</p>
+    </cpn>
+</div>
+<template id="cpn">
+    <div>
+        <h2>我是标题</h2>
+        <p>我是内容，呵呵呵呵</p>
+        <!--slot插槽的两种使用方法，一种直接使用其他内容替换，一种给默认值，有新的就替换，没有就显示默认值-->
+        <!--<slot></slot>-->
+        <slot><button>默认button</button></slot>
+    </div>
+</template>
+<script>
+    const app = new Vue({
+        el: '#app',
+        components: {
+            cpn: {
+                template: '#cpn'
+            }
+        }
+    })
+</script>
+</body>
+</html>

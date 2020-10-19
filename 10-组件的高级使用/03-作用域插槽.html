@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <cpn>
+        <!--通过v-slot获取到子组件的值进行展示-->
+        <template v-slot="slotProps">
+           <p>{{slotProps.obj.message}}</p>
+        </template>
+    </cpn>
+</div>
+<template id="cpn">
+    <div>
+        <!--绑定对象-->
+        <slot :obj="obj"></slot>
+    </div>
+</template>
+<script>
+    const app = new Vue({
+        el: '#app',
+        components: {
+            cpn: {
+                template: '#cpn',
+                data(){
+                    return {
+                        obj: {
+                            message: 'qwe'
+                        }
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
