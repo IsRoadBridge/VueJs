@@ -1,16 +1,16 @@
 <template>
   <div>
-    <!--通过router-link关联路由-->
-    <router-link to="/" tag="button">Home</router-link> |
-    <router-link to="/about" tag="button">About</router-link>
-    <!--通过router-view展示关联路由页面-->
-    <router-view/>
+    <!--通过query实现传参的两种方式，link和方法-->
+    <router-link :to="{path: '/profile',query:{name:'zhansan',age: 18}}" >档案</router-link>|
+    <router-link to="/home">首页</router-link>
+    <router-link to="/user">用户</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
     export default {
-        name: 'App',
+        name: 'App'
     }
 </script>
 
