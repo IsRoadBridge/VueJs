@@ -4,7 +4,10 @@
     <router-link :to="{path: '/profile',query:{name:'zhansan',age: 18}}" >档案</router-link>|
     <router-link to="/home">首页</router-link>
     <router-link to="/user">用户</router-link>
-    <router-view></router-view>
+    <!--可以在keep-alive中include="newsList,imageList"缓存指定的组件，排除用exclude-->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
