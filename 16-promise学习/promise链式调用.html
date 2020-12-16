@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  //普通函数的写法
+ new Promise(function (resolve,reject) {
+     setTimeout(resolve('111')
+         ,1000)
+ }).then(function (res) {
+      console.log(res)
+     }
+ )
+//箭头函数的写法
+  new  Promise((resolve,reject) =>{
+      setTimeout(() =>{
+          //成功时调用resolve方法，then用来处理resolve方法
+          //resolve('success')
+          //失败时调用reject方法，catch用来处理reject方法
+          reject('error')
+      },1000)
+  }).then((res)=>{
+      console.log(res)
+  }).catch((err) => {
+      console.log(err)
+  })
+
+  //promise的链式调用
+  new  Promise((resolve) => {
+      setTimeout(() =>{
+          resolve('字符串')
+      },1000)
+  }).then((res) =>{
+      console.log(res)
+      //then返回的结果会被自动封装成promise供下一次调用
+      //return res = res + '拼接'
+      //可以调用reject来执行错误的情况，有错误就会终止之后的then执行
+      return Promise.reject('error message')
+  }).then((res) =>{
+      console.log(res)
+      return res = res + '完成'
+  }).then((res) =>{
+      console.log(res)
+  }).catch((err) =>{
+      console.log(err)
+  })
+
+  //all方法用来同时处理多个异步请求，可以将多个异步请求在执行完成后将结果返回成数组
+  Promise.all([
+      new  Promise((resolve) =>{
+          setTimeout(() =>{
+              resolve('111')
+          },1000)
+      }),
+      new  Promise((resolve) =>{
+          setTimeout(() =>{
+              resolve('222')
+          },2000)
+      })
+  ]).then(results =>{
+      console.log(results[0])
+      console.log(results[1])
+  })
+</script>
+</html>

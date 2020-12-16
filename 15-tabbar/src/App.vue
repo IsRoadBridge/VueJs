@@ -3,8 +3,8 @@
      <router-view></router-view>
     <Tabbar>
       <Tabbaritem path="/Home">
-        <img slot="item-icon" src="./assets/img/tabbar/home.svg">
-        <img slot="item-icon-active" src="./assets/img/tabbar/home_active.svg">
+        <img slot="item-icon" src="~assets/img/tabbar/home.svg">
+        <img slot="item-icon-active" src="~assets/img/tabbar/home_active.svg">
         <div slot="item-text">首页</div>
       </Tabbaritem>
       <Tabbaritem path="/Category">
@@ -27,8 +27,8 @@
 </template>
 
 <script>
-  import Tabbar from "./components/Tabbar";
-  import Tabbaritem from "./components/Tabbaritem";
+  import Tabbar from "components/Tabbar";
+  import Tabbaritem from "components/Tabbaritem";
     export default {
         name: "App",
         components: {Tabbaritem, Tabbar},
